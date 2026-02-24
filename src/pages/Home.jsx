@@ -117,6 +117,31 @@ export default function Home() {
           * Activity may change indoors depending on the weather
         </p>
 
+        {/* ── DRESS CODE ── */}
+        <div className="flex items-center gap-4 mt-10 mb-6">
+          <div className="flex-1 h-px bg-burg/20" />
+          <span className="text-burg/40 text-xs">✦</span>
+          <div className="flex-1 h-px bg-burg/20" />
+        </div>
+
+        <h2 className="font-script text-burg mb-5" style={{ fontSize: '2.4rem' }}>
+          What to Wear
+        </h2>
+
+        <div className="text-left rounded-xl border border-burg/15 bg-burg/[0.03] p-5 mb-10 space-y-3">
+          <p className="font-sans text-burg/70 text-sm leading-relaxed">
+            Chill during the day — come as you are if you like. But when the murder mystery begins at <span className="font-semibold text-burg">6pm</span>, it's time to dress the part.
+          </p>
+          <p className="font-sans text-burg/70 text-sm leading-relaxed">
+            Think <span className="font-semibold text-burg">Vegas glam, casino chic</span> — glamourous, polished, and a little dangerous. Let your character be your inspiration.
+          </p>
+          <div className="pt-2 border-t border-burg/10 flex flex-wrap gap-x-3 gap-y-1">
+            {['Gold', 'Silver', 'Red', 'Black', 'Brown'].map(c => (
+              <span key={c} className="font-sans text-burg/40 text-xs tracking-wide">{c}</span>
+            ))}
+          </div>
+        </div>
+
         {/* ── QUICK NAV ── */}
         <div className="flex items-center gap-4 mb-6">
           <div className="flex-1 h-px bg-burg/20" />

@@ -214,6 +214,16 @@ export default function MurderMystery() {
           <p className="font-sans text-casino-cream/45 text-xs tracking-[0.3em] uppercase mb-4">
             Enter your name to reveal your character
           </p>
+
+          {/* Cheating warning */}
+          <div className="flex items-start gap-2.5 bg-casino-red/10 border border-casino-red/25 rounded-lg px-4 py-3 mb-4 text-left">
+            <span className="text-casino-red/70 text-base shrink-0 mt-px">⚠</span>
+            <p className="font-sans text-casino-cream/50 text-xs leading-relaxed">
+              <span className="text-casino-red/80 font-semibold">Your eyes only.</span>{' '}
+              Please only look up your own name — peeking at someone else's character is cheating and ruins the mystery for everyone!
+            </p>
+          </div>
+
           <form onSubmit={handleSubmit} className="flex gap-2">
             <input
               ref={inputRef}
@@ -272,19 +282,24 @@ export default function MurderMystery() {
             <div className="flex-1 h-px bg-casino-red/20" />
           </div>
 
-          <div className="text-left space-y-2">
-            <p className="font-sans text-casino-cream/35 text-xs">
-              <span className="text-casino-cream/55 uppercase tracking-widest font-semibold">Dress Code —</span>{' '}
-              Vegas Glam / Casino Chic / Based On Your Character
+          <div className="text-left space-y-3">
+            <p className="font-sans text-casino-cream/55 text-xs uppercase tracking-widest font-semibold">
+              Dress Code
             </p>
-            <p className="font-sans text-casino-cream/30 text-xs italic">
-              Think <span className="text-casino-gold/55">glamorous</span>,{' '}
-              <span className="text-casino-gold/55">polished</span>, and a little{' '}
-              <span className="text-casino-red/55">dangerous</span>
+            <p className="font-sans text-casino-cream/60 text-sm leading-relaxed">
+              Chill during the day — but when the mystery begins, it's time to transform.
+              Think <span className="text-casino-gold/80">Vegas glam</span>,{' '}
+              <span className="text-casino-gold/80">casino chic</span> — let your character be your inspiration.
             </p>
-            <p className="font-sans text-casino-cream/20 text-xs">
-              Suggested palette: Gold · Silver · Red · Black · Brown
+            <p className="font-sans text-casino-cream/45 text-sm leading-relaxed italic">
+              Glamourous, polished, and a little{' '}
+              <span className="text-casino-red/70">dangerous</span>.
             </p>
+            <div className="pt-2 border-t border-casino-cream/8 flex flex-wrap gap-x-3">
+              {['Gold', 'Silver', 'Red', 'Black', 'Brown'].map(c => (
+                <span key={c} className="font-sans text-casino-cream/25 text-xs tracking-wide">{c}</span>
+              ))}
+            </div>
           </div>
         </div>
       </div>
