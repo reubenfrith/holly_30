@@ -1,0 +1,22 @@
+[
+  {
+    "category": "Cocktails & Mocktail",
+    "items": [
+      {
+        "name": "Holly's All-Nighter",
+        "tags": "Refreshing · Citrus · Smooth",
+        "description": "Vodka, Lemongrass Syrup, Oolong Tea, Lemon"
+      },
+      {
+        "name": "Lychee Good Qi",
+        "tags": "Fruity · Light · Bubbly",
+        "description": "Lychee Syrup, Soda Water, Lime, Lychee"
+      },
+      {
+        "name": "Jasmine Sunrise",
+        "tags": "Tropical · Earthy · Light",
+        "description": "Mango Juice, Jasmine Tea, Soda Water"
+      }
+    ]
+  }
+]

@@ -1,0 +1,23 @@
+[
+  {
+    "course": "Snacks",
+    "items": [
+      { "name": "Popcorn, Chips, Cheese & Crackers" }
+    ]
+  },
+  {
+    "course": "Primo",
+    "items": [
+      { "name": "Asian Fried Rice with Chicken" },
+      { "name": "Asian Fried Noodles with Beef" }
+    ]
+  },
+  {
+    "course": "Secondi",
+    "items": [
+      { "name": "Garlic Bread" },
+      { "name": "Fruits" },
+      { "name": "Spring Roll" }
+    ]
+  }
+]

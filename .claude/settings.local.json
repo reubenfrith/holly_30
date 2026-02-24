@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm --prefix /Users/reuben.frith/code/sandbox/HollyCasino install:*)",
+      "Bash(npx tailwindcss init:*)",
+      "Bash(/Users/reuben.frith/code/sandbox/HollyCasino/node_modules/.bin/tailwindcss:*)",
+      "Bash(npm run build:*)",
+      "Bash(while IFS= read -r f)",
+      "Bash(do echo \"FILE: $f\")",
+      "Bash(done)"
+    ]
+  }
+}
