@@ -1,5 +1,5 @@
 import { useState, useRef } from 'react'
-import { characters } from '../data/characters'
+import { characters, disambiguations } from '../data/characters'
 
 // ── Fanned playing cards ──────────────────────────────────────────────
 function FannedCards() {
@@ -96,31 +96,45 @@ function SuitRow() {
 // ── Main page ─────────────────────────────────────────────────────────
 export default function MurderMystery() {
   const [inputValue, setInputValue] = useState('')
-  const [result, setResult] = useState(null)
+  const [result, setResult] = useState(null)   // 'found' | 'notFound' | 'disambiguate'
   const [character, setCharacter] = useState(null)
+  const [disambigOptions, setDisambigOptions] = useState([])
   const [animKey, setAnimKey] = useState(0)
   const inputRef = useRef(null)
+
+  function revealCharacter(char) {
+    setCharacter(char)
+    setResult('found')
+    setAnimKey(k => k + 1)
+  }
 
   function handleSubmit(e) {
     e.preventDefault()
     const key = inputValue.toLowerCase().trim()
-    const found = Object.entries(characters).find(
-      ([k]) => k.toLowerCase() === key
-    )?.[1]
-    if (found) {
-      setCharacter(found)
-      setResult('found')
-      setAnimKey(k => k + 1)
-    } else {
-      setCharacter(null)
-      setResult('notFound')
+
+    // Exact match
+    if (characters[key]) {
+      revealCharacter(characters[key])
+      return
     }
+
+    // Disambiguation (e.g. "jess" → Jess A / Jess J)
+    if (disambiguations[key]) {
+      setDisambigOptions(disambiguations[key])
+      setCharacter(null)
+      setResult('disambiguate')
+      return
+    }
+
+    setCharacter(null)
+    setResult('notFound')
   }
 
   function handleReset() {
     setInputValue('')
     setResult(null)
     setCharacter(null)
+    setDisambigOptions([])
     setTimeout(() => inputRef.current?.focus(), 50)
   }
 
@@ -288,60 +302,71 @@ export default function MurderMystery() {
           </div>
         )}
 
+        {/* Disambiguation (e.g. two guests named Jess) */}
+        {result === 'disambiguate' && (
+          <div className="bg-casino-deep border border-casino-gold/25 rounded-xl p-5 sm:p-7 mb-6">
+            <p className="font-sans text-casino-gold/60 text-xs tracking-[0.25em] uppercase mb-4 text-center">
+              Which one are you?
+            </p>
+            <div className="flex flex-col gap-2.5">
+              {disambigOptions.map(opt => (
+                <button
+                  key={opt.key}
+                  onClick={() => revealCharacter(characters[opt.key])}
+                  className="w-full bg-casino-gold/10 hover:bg-casino-gold/20 border border-casino-gold/25
+                             hover:border-casino-gold/50 text-casino-cream font-sans text-sm
+                             py-3 px-5 rounded-lg transition-all duration-200"
+                >
+                  {opt.label}
+                  <span className="text-casino-gold/50 ml-2 text-xs">
+                    — {characters[opt.key]?.characterName}
+                  </span>
+                </button>
+              ))}
+            </div>
+            <button onClick={handleReset}
+              className="mt-4 w-full text-casino-cream/30 hover:text-casino-cream/50
+                         font-sans text-xs py-2 transition-colors">
+              ← Go back
+            </button>
+          </div>
+        )}
+
         {/* Character card */}
         {result === 'found' && character && (
           <div key={animKey} className="border border-casino-gold/30 rounded-xl overflow-hidden"
                style={{ animation: 'revealCard 0.5s ease-out forwards', background: '#111' }}>
 
-            <div className="bg-gradient-to-r from-casino-felt/80 to-casino-deep border-b border-casino-gold/20 p-5 sm:p-7">
-              <p className="font-sans text-casino-gold/50 text-xs tracking-[0.25em] uppercase mb-1">
+            {/* Header */}
+            <div className="bg-gradient-to-r from-casino-felt/80 to-casino-deep border-b border-casino-gold/20 p-5 sm:p-7 text-center">
+              <p className="font-sans text-casino-gold/50 text-xs tracking-[0.25em] uppercase mb-3">
                 Your character for this evening
               </p>
-              <h2 className="font-serif text-casino-gold text-2xl sm:text-3xl font-bold mb-1">
+              <h2 className="font-serif text-casino-gold leading-tight font-bold mb-2"
+                  style={{ fontSize: 'clamp(1.8rem, 6vw, 2.6rem)' }}>
                 {character.characterName}
               </h2>
-              <p className="font-sans text-casino-cream/50 text-sm italic">"{character.alias}"</p>
+              <p className="font-sans text-casino-cream/45 text-sm tracking-wide uppercase">
+                {character.role}
+              </p>
             </div>
 
-            <div className="p-5 sm:p-7 space-y-5">
-              <div>
-                <p className="font-sans text-casino-gold/50 text-xs tracking-[0.2em] uppercase mb-2">Your Story</p>
-                <p className="font-sans text-casino-cream/65 text-sm leading-relaxed">{character.backstory}</p>
-              </div>
+            {/* Body */}
+            <div className="p-5 sm:p-7 space-y-4">
 
-              <div>
-                <p className="font-sans text-casino-gold/50 text-xs tracking-[0.2em] uppercase mb-2">Your Objectives</p>
-                <ul className="space-y-1.5">
-                  {character.objectives.map((obj, i) => (
-                    <li key={i} className="flex gap-2.5">
-                      <span className="text-casino-gold/60 shrink-0 mt-0.5 text-sm">♦</span>
-                      <span className="font-sans text-casino-cream/65 text-sm leading-relaxed">{obj}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-              <div className="bg-black/40 border border-casino-red/20 rounded-lg p-4">
-                <p className="font-sans text-casino-red/60 text-xs tracking-[0.2em] uppercase mb-2 flex items-center gap-1.5">
-                  <span>🔒</span> Your Secret — eyes only
-                </p>
-                <p className="font-sans text-casino-cream/55 text-sm leading-relaxed italic">{character.secrets}</p>
-              </div>
-
-              <div className="bg-casino-gold/5 border border-casino-gold/20 rounded-lg p-4">
-                <p className="font-serif text-casino-gold text-base font-semibold mb-1.5">Your Mission</p>
+              <div className="bg-casino-gold/5 border border-casino-gold/15 rounded-lg p-4 text-center">
                 <p className="font-sans text-casino-cream/55 text-sm leading-relaxed">
-                  Play your role, guard your secrets, pursue your objectives — and find out who killed Victor Ashworth before the inspector pieces it together. Good luck,{' '}
-                  <span className="text-casino-gold">{character.characterName}</span>.
+                  Your backstory, objectives and secrets are all inside your character sheet.
+                  Download it below — and keep it to yourself!
                 </p>
               </div>
 
               <div className="flex flex-col sm:flex-row gap-2.5 pt-1">
-                <a href={`/characters/${character.pdfFile}`} download
+                <a href={`${import.meta.env.BASE_URL}characters/${character.pdfFile}`} download
                   className="flex-1 flex items-center justify-center gap-2
-                             bg-casino-gold hover:bg-casino-gold-light text-casino-black
+                             bg-casino-gold hover:bg-casino-gold/90 text-casino-black
                              font-sans font-semibold text-xs tracking-widest uppercase
-                             px-5 py-3 rounded-lg transition-all duration-200">
+                             px-5 py-3.5 rounded-lg transition-all duration-200 shadow-lg shadow-casino-gold/10">
                   <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
                           d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
