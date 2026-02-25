@@ -29,10 +29,11 @@ export const characters = {
   cody:     { characterName: 'Dirty Dave',            role: 'Card Dealer',             pdfFile: 'Dealer.pdf' },
   jessj:    { characterName: 'Mimi Martini',          role: 'Cocktail Waitress',       pdfFile: 'Mimi.pdf' },
   lachlan:  { characterName: 'Cole Conway',           role: 'Sports Book Manager',     pdfFile: 'Cole.pdf' },
-  mia:      { characterName: 'Candice',                    role: 'Call Girl',          pdfFile: 'Candice.pdf' },
+  nina:      { characterName: 'Candice',               role: 'Call Girl',               pdfFile: 'Candice.pdf' },
   carly:    { characterName: 'Jamie Journalist',      role: 'Reporter',                pdfFile: 'Jamie.pdf' },
   michael:  { characterName: 'Ace High',              role: 'Gambler',                 pdfFile: 'Ace.pdf' },
   tanya:    { characterName: 'Ace High',              role: 'Gambler',                 pdfFile: 'Ace.pdf' },
+  mia:     { characterName: 'Queenie Gin',           role: 'Cocktail Waitress',       pdfFile: 'Queenie.pdf' },
 }
 
 // For guests who share a first name, typing their name shows these options.
