@@ -1,10 +1,10 @@
 [
   {
-    "course": "Snacks",
+    "course": "Snacks 零食",
     "items": [{ "name": "Popcorn, Chips, Cheese & Crackers, Seasonal Fruits" }]
   },
   {
-    "course": "Primo",
+    "course": "Primo 主菜",
     "items": [
       { "name": "Asian Fried Rice with Chicken" },
       { "name": "Asian Fried Noodles with Beef" },
@@ -12,11 +12,11 @@
     ]
   },
   {
-    "course": "Secondi",
+    "course": "Secondi 配菜",
     "items": [
       { "name": "Garlic Bread" },
       { "name": "Fruits" },
-      { "name": "Spring Rolls (Taro , Chicken, Vegetables)" }
+      { "name": "Spring Rolls (Taro & Chicken, Vegetables)" }
     ]
   }
 ]

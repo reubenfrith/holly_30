@@ -41,7 +41,7 @@ export default function DinnerMenu() {
 
         {/* Table illustration */}
         <div className="flex justify-center gap-4 text-3xl opacity-60 mb-10">
-          🫙 🕯️ 🌸
+          🫙 🍽️ 🥩
         </div>
 
         {/* Menu courses */}
