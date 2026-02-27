@@ -352,9 +352,9 @@ export default function MurderMystery() {
                     </p>
                     <div className="flex flex-col sm:flex-row gap-2 pt-1">
                       <a
-                        href={`${import.meta.env.BASE_URL}character/${character.pdfFile}`}
-                        download={character.pdfFile}
-                        type="application/pdf"
+                        href={`${import.meta.env.BASE_URL}characters/${character.pdfFile}`}
+                        download
+                        // type="application/pdf"
                         className="flex-1 flex items-center justify-center gap-2
                                    bg-casino-gold hover:bg-casino-gold/90 text-casino-black
                                    font-sans font-medium text-[10px] tracking-[0.35em] uppercase
