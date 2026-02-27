@@ -375,7 +375,7 @@ function GameNight() {
         {/* ── LOOKUP ── */}
         <div className="max-w-md mx-auto mt-9 px-4">
           <p className="font-sans text-casino-cream/50 text-[9px] tracking-[0.4em] uppercase mb-5">
-            Enter your name to retrieve your mission
+            Enter your first name to retrieve your mission
           </p>
 
           <form onSubmit={handleSubmit} className="flex gap-0">
@@ -384,7 +384,7 @@ function GameNight() {
               type="text"
               value={inputValue}
               onChange={(e) => setInputValue(e.target.value)}
-              placeholder="Your name..."
+              placeholder="Your first name..."
               className="flex-1 bg-transparent border border-casino-cream/20 border-r-0 px-4 py-3
                          font-sans text-casino-cream placeholder-casino-cream/30 text-sm
                          focus:outline-none focus:border-casino-gold/45

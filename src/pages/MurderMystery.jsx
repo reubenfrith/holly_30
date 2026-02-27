@@ -236,7 +236,7 @@ export default function MurderMystery() {
         {/* ── CHARACTER LOOKUP ── */}
         <div className="max-w-md mx-auto mt-9 px-4">
           <p className="font-sans text-casino-cream/55 text-[9px] tracking-[0.4em] uppercase mb-6">
-            Enter your name to reveal your character
+            Enter your first name to reveal your character
           </p>
 
           {/* Warning — no emoji, editorial left-border style */}
@@ -253,7 +253,7 @@ export default function MurderMystery() {
               type="text"
               value={inputValue}
               onChange={e => setInputValue(e.target.value)}
-              placeholder="Your name..."
+              placeholder="Your first name..."
               className="flex-1 bg-transparent border border-casino-cream/20 border-r-0 px-4 py-3
                          font-sans text-casino-cream placeholder-casino-cream/35 text-sm
                          focus:outline-none focus:border-casino-gold/45
