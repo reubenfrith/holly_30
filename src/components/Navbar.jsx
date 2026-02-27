@@ -6,14 +6,15 @@ const navLinks = [
   { path: '/drinks', label: 'Drinks' },
   { path: '/dinner', label: 'Dinner' },
   { path: '/mystery', label: 'Mystery' },
+  { path: '/game', label: 'Game Night' },
 ]
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false)
   const location = useLocation()
-  const isMystery = location.pathname === '/mystery'
+  const isDark = location.pathname === '/mystery' || location.pathname === '/game'
 
-  if (isMystery) {
+  if (isDark) {
     // Dark casino navbar for the mystery page
     return (
       <nav className="fixed top-0 left-0 right-0 z-50 bg-casino-black/90 border-b border-casino-gold/30"

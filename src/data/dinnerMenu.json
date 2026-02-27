@@ -1,15 +1,14 @@
 [
   {
     "course": "Snacks",
-    "items": [
-      { "name": "Popcorn, Chips, Cheese & Crackers" }
-    ]
+    "items": [{ "name": "Popcorn, Chips, Cheese & Crackers, Seasonal Fruits" }]
   },
   {
     "course": "Primo",
     "items": [
       { "name": "Asian Fried Rice with Chicken" },
-      { "name": "Asian Fried Noodles with Beef" }
+      { "name": "Asian Fried Noodles with Beef" },
+      { "name": "Asian Fried Rice with Prawns and Chinese Sausage" }
     ]
   },
   {
@@ -17,7 +16,7 @@
     "items": [
       { "name": "Garlic Bread" },
       { "name": "Fruits" },
-      { "name": "Spring Roll" }
+      { "name": "Spring Rolls (Taro , Chicken, Vegetables)" }
     ]
   }
 ]

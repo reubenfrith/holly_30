@@ -34,6 +34,7 @@ export const characters = {
   michael:  { characterName: 'Ace High',              role: 'Gambler',                 pdfFile: 'Ace.pdf' },
   tanya:    { characterName: 'Ace High',              role: 'Gambler',                 pdfFile: 'Ace.pdf' },
   mia:     { characterName: 'Queenie Gin',           role: 'Cocktail Waitress',       pdfFile: 'Queenie.pdf' },
+  zoe:     { characterName: 'Jacinta',              role: 'Politician',               pdfFile: 'Jacinta.pdf' },
 }
 
 // For guests who share a first name, typing their name shows these options.

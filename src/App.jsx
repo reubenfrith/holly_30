@@ -4,6 +4,7 @@ import Home from './pages/Home'
 import DrinksMenu from './pages/DrinksMenu'
 import DinnerMenu from './pages/DinnerMenu'
 import MurderMystery from './pages/MurderMystery'
+import GameNight, { FillerGameNight } from './pages/GameNight'
 
 export default function App() {
   return (
@@ -14,6 +15,7 @@ export default function App() {
         <Route path="/drinks" element={<DrinksMenu />} />
         <Route path="/dinner" element={<DinnerMenu />} />
         <Route path="/mystery" element={<MurderMystery />} />
+        <Route path="/game" element={<FillerGameNight />} />
       </Routes>
     </BrowserRouter>
   )

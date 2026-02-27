@@ -8,7 +8,8 @@
       "Bash(while IFS= read -r f)",
       "Bash(do echo \"FILE: $f\")",
       "Bash(done)",
-      "Bash(git:*)"
+      "Bash(git:*)",
+      "Bash(head:*)"
     ]
   }
 }
