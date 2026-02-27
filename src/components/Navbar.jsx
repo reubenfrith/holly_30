@@ -6,7 +6,7 @@ const navLinks = [
   { path: '/drinks', label: 'Drinks' },
   { path: '/dinner', label: 'Dinner' },
   { path: '/mystery', label: 'Mystery' },
-  { path: '/game', label: 'Game Night' },
+  { path: '/game', label: 'On the Day' },
 ]
 
 export default function Navbar() {
